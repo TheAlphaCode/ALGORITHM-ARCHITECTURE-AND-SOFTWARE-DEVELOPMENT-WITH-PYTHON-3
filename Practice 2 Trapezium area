@@ -1,0 +1,6 @@
+print("Program for the calculation of a Trapezoid area")
+B = (float(input('\nEnter the value of the Major Base ')))
+b = (float(input('Enter the value of the Minor Base ')))
+h = (float(input('Enter the value of the height ')))
+AT = ((B+b)/2)*h
+print('The are of the calculate trapezium is: {} cm'.format(AT))
