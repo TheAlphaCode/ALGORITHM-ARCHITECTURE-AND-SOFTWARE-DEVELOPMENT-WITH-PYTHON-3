@@ -1,0 +1,85 @@
+""" Starting the Order Manager program """
+value = 0
+prices = { #variable with the list price-------------------    
+    'soups' : 10,
+    'salads' : 25,
+    'chicken' : 28,
+    'meat' : 29,
+    'pork' : 30,
+    'hotdogs' : 4,
+    'burgers' : 7
+} # End of price list--------------
+
+tax = float(input('Enter the tax value: '))
+print ('Reastaurant order manager: x')
+print ('\t1.- Vegetarian menu')
+print ('\t2.- No Vegetarian menu')
+print ('\t3.- Fast Food')
+
+menu_option = int(input('\n Por favor digite una de las opciones del menu: '))
+
+if(menu_option == 1): # Menu management 1 Vegetarian
+    print('1. Tomatoes soup')
+    print('2. Mix salad')
+    
+    submenu_option = int(input('\nPlease enter one of the options on the Vegetarian menu: '))  
+    while submenu_option<1 or submenu_option>2: #validation that the user enters the correct menu option
+        print('Invalid option try again: ')
+        submenu_option = int(input (': '))
+        if submenu_option<1 or submenu_option>2:
+            print('Invalid value.')
+            
+    n = int(input('how many orders would you like to buy: '))
+    if(submenu_option  == 1):
+        value =  n * prices['soups']
+    elif(submenu_option == 2):
+        value = n * precios['salads']
+    value = value - 0.2 * value # calculate the discount with 20%
+    value = value + (value * tax/100) # calculates the final amount or value to be paid by the customer.
+    print('The total to pay is: {}'.format(value))
+""" Intermediate code  of the Order Manager program """
+
+""" second part of the Order Manager program ... """    
+if(menu_option == 2): # Management of non-vegetarian menu 2
+    print('1. Chicken')
+    print('2. Meat')
+    print('3. Pork')    
+    submenu_option = int(input('\n Please enter one of the options for the non Vegetarian menu: '))
+    while submenu_option<1 or submenu_option>3: #validation that the user enters the correct menu option
+        print('Invalid option try again: ')
+        opcion_submenu = int(input (': '))
+        if submenu_option<1 or submenu_option>3:
+            print('Invalid value.')
+    
+    n = int(input('How many orders would you like to buy: '))
+    if(submenu_option == 1):
+        value = n * prices['chicken']
+    elif(submenu_option == 2):
+        value = n * prices['meat']
+    elif(submenu_option == 3):
+        value = n * prices['pork']   
+    value = value - 0.1 * value # Calculate the discount with 10%
+    value = value + (value * tax/100)  # calculates the final amount or value to be paid by the customer.
+    print('The total to pay is: {}'.format(value))        
+elif(menu_option == 3): # Menu management 3 Fast food
+    print('1. Hot Dogs')
+    print('2. Burgers')
+    
+    submenu_option = int(input('\n Please enter one of the options for the Fast food menu: '))  
+    while submenu_option<1 or submenu_option>2: #validation that the user enters the correct menu option
+        print('Invalid option try again: ')
+        submenu_option = int(input (': '))
+        if submenu_option<1 or submenu_option>2:
+            print('Invalid value.')
+            
+    n = int(input('How many orders would you like to buy: '))
+    if(submenu_option  == 1):
+        value =  n * prices['hotdogs']
+    elif(submenu_option == 2):
+        value = n * prices['burgers']
+    value = value - 0.05 * value # calculate the discount with 20%
+    value = value + (value * tax/100) # calculates the final amount or value to be paid by the customer.
+    print('The total to pay is: {}'.format(value))    
+else:
+    print('Invalid option try again')
+""" End of the Order Manager Program """
