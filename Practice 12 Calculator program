@@ -1,0 +1,47 @@
+# version 12.1
+import numpy as np
+r = 0.0
+print ('Calculator.')
+print ('\t1.- Sum')
+print ('\t2.- Subtraction')
+print ('\t3.- Multiplication')
+print ('\t4.- Division')
+print ('\t5.- Exponenciación')
+print ('\t6.- Sine')
+print ('\t7.- Coseno')
+print ('\t8.- Tangente')
+print('Input an operation')
+op = int(input('Choosen operation: '))
+if(op == 6 or op == 7 or op == 8 ):
+    x = float(input('Enter value in degree for the input argument of the function: '))
+else:
+    value_1 = float(input('Input the first value: ')) 
+    value_2 = float(input('Input the second value: '))
+if(op == 1):
+    r = value_1 + value_2
+    print('\nThe result of the sum is: {}'.format(r))
+elif(op == 2):
+    r = value_1 - value_2
+    print('\nThe result of the subtraction is: {}'.format(r))
+elif(op == 3):
+    r = value_1 * value_2
+    print('\nThe result of the multiplication is: {}'.format(r))
+elif(op == 4):
+    if(value_2 == 0):
+        print('\nError Division by zero, try again')
+    else:
+        r = value_1/value_2
+    print('\nThe result of the division is: {}'.format(r))
+elif(op == 5):
+    r = (value_1**value_2)
+    print('\nThe result of the operation is: {}'.format(r))
+elif(op == 6):
+    r = np.sin(x)
+    print('\nThe value of the sine function({}) is equal to: {}'.format(x,r))
+elif(op == 7):
+    r = np.cos(x)
+    print('\nThe value of the cosine function({}) is equal to: {}'.format(x,r))
+elif(op == 8):
+    r = np.tan(x)
+    print('\nThe value of the tangent function({}) is equal to: {}'.format(x,r))
+    
