@@ -1,0 +1,76 @@
+accidents = 0 #Variables
+a = 0
+b = 0
+c = 0
+d = 0
+repeat_key = str('y')#......................
+while repeat_key == 'y' or repeat_key =='Y': # Main cycle as long as the answer is (y) will enter
+    age = int(input('Please enter the age: '))
+    print ('Enter gender type: ')
+    print ('\t1.- Male')
+    print ('\t2.- Female')
+    gender = 0
+    while gender < 1 or gender > 2: # Internal control loop regarding the gender variable
+        gender = int (input (': '))
+        if gender < 1 or gender > 2:
+            print('Invalid input')
+    print ('Select a highway: ')
+    print ('\t1.- Interstate Highway 5')
+    print ('\t2.- Interstate Highway 80')
+    print ('\t3.- State Route 99')
+    print ('\t4.- U.S. Route 50')
+    print ('\t5.- State Route 16')
+    print ('\t6.- State Route 70')
+    print ('\t7.- State Route 160')
+    highway = 0
+    while highway < 1 or highway > 7: # Internal control loop regarding the highway variable
+        highway = int(input (': '))
+        if highway < 1 or highway > 7:
+            print('Invalid value try again')
+    print ('Please select the driver condition:')
+    print ('\t1.- Drunk')
+    print ('\t2.- Sober')
+    driver_condition = 0
+    while driver_condition < 1 or driver_condition > 2: #Internal control loop regarding the driver_condition variable
+        driver_condition = int(input (': '))
+        if driver_condition < 1 or driver_condition > 2:
+            print('Invalid value try again')
+    accidents = accidents + 1
+    
+    if gender == 1:
+        a = a + 1 # Sumatoria respecto variable sexo = hombre
+    if highway == 3:
+        b = b + 1 # Sumatoria respecto variable carretera = Ruta Estatal 99 
+    if driver_condition == 1:
+        c = c + 1 # Sumatoria respecto variable estado_conductor = ebrio
+    if age < 18:
+        d = d + 1 # Sumatoria respecto variable edad < 18
+    print ('Would you like to repeat the process? (Y/N): ')
+    print ('\t1.- Y')
+    print ('\t2.- N')
+    repeat_key = []
+    while repeat_key !='y' and repeat_key !='n': # Cycle that controls the user's response
+        repeat_key = str(input(': '))
+        if repeat_key != 'y' and repeat_key != 'n':
+            print('Invalid input try again')    
+if accidents == 0:
+    a = 0
+else:
+    a=100.0*a/accidents # Calculation of the average as a percentage
+if accidents == 0:
+    b = 0
+else:
+    b=100.0*b/accidents # Calculation of the average as a percentage
+if accidents == 0:
+    c = 0
+else:
+    c=100.0*c/accidents # Calculation of the average as a percentage
+if accidents == 0:
+    d = 0
+else:
+    d=100.0*d/accidents # Calculation of the average as a percentage
+print ('Total accidents: {}'.format(accidents))
+print ('Percentage of accidents caused by men: {}%'.format(a))
+print ('Percentage of accidents occurring on State Route 99: {}%'.format(b))
+print ('Percentage of accidents while intoxicated: {}%'.format(c))
+print ('Percentage of underage drivers: {}%'.format(d))
