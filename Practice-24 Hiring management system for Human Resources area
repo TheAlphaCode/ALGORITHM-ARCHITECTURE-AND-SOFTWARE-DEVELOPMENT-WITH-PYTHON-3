@@ -1,0 +1,41 @@
+name, age = input('Enter a name: '), int(input ('Enter the age: ')) # Variables
+class Hiring:    
+    def __init__(self, name, age):  
+        self.age = age
+        self.name = name
+    def hiring_manager(self): # Method from the Hiring class 
+        jobs_found, gender, studies = 0, 0, 0 # Variables
+        print ('Select a gender')
+        print ('\t1.- Male')
+        print ('\t2.- Female')
+        while gender < 1 or gender > 2:
+            gender = int(input (': '))
+            if gender < 1 or gender > 2:
+                print('Invalid input try again.')
+        print ('Please select your study level: ')
+        print ('\t1.- Elementary')
+        print ('\t2.- High school')
+        print ('\t3.- Bachelor')
+        print ('\t4.- Doctoral degree')        
+        while studies<1 or studies>5:
+            studies = int (input (': '))
+            if studies<1 or studies>4:
+                print('Try again invalid input.')
+        if (gender == 2) and (studies == 4) and (age >= 30 and age <= 60): #Conditional
+            print ('Job offer found! you could be: University Dean')
+            jobs_found +=1
+        if (gender == 1) and (studies >= 2) and (age >= 18 and age <= 60): #Conditional
+            print ('Job offer found! you could be: Administrative manager')
+            jobs_found +=1
+        if (studies >= 2) and (age > 18): #Conditional
+            print ('Job offer found! you could be: Teacher assistant')
+            jobs_found += 1
+        if jobs_found == 0:
+            print ('No available jobs were found, check back in a few days.')
+            print ('Greetings.')
+            print ('HR team')
+        print ('Name: {}'.format(name))
+        print ('Number of jobs available: {}'.format(jobs_found))        
+# Object from the Hiring class 
+applicant_1 = Hiring(name, age)
+applicant_1.hiring_manager()
