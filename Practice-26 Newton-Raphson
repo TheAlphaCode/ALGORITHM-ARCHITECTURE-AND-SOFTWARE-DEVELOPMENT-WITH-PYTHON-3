@@ -1,0 +1,24 @@
+import math
+
+def function(x):
+    return math.cos(x) - x * x * x
+
+def derivate(x):
+    return -math.sin(x) - 3 * x * x
+
+print('Newton Raphson method, for the calculation of the function: cos(x) - x * x * x')
+
+x = float(input('\nEnter the initial value of x0: '))
+i = 0
+x_1 = 0
+
+while i<100 and(i == 0 or x!= x_1): #Iteration control cycle
+    x_1 = x
+    x = x - function(x) / derivate(x) # Newton formula
+    err = abs((x - x_1)/x) # Formula to determine the error
+    print('x'+ str(i)+ ' = '+ str(x_1)+ ' error = '+str(err))  
+    i += 1
+if i == 100:
+    print('The solution is not convergent.')
+else:
+    print('The solution is: {}'.format(x))
