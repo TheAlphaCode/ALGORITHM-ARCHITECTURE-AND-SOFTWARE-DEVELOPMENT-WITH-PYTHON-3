@@ -1,0 +1,74 @@
+#Variables
+analgesic_amount, anti_allergy_amount, national_quantity, import_quantity = 0,0,0,0
+analgesic_average, anti_allergy_average,national_average, import_average  = 0,0,0,0
+ 
+for i in range (1,3):
+    print ('Enter a pharmaceutical product: ' + str(i))
+    price = float (input ('Enter the pharmaceutical price: '))
+    print ('Select the pharmacetical type: ')
+    print ('\t1.- Analgésic')
+    print ('\t2.- Anti-allergy')
+    type_ = 0
+    while type_ < 1 or type_ > 2:
+        type_ = int (input (': '))
+        if type_ < 1 or type_ > 2:
+            print('Invalid value ty again.')
+    print ('Select the product origin: ')
+    print ('\t1.- National')
+    print ('\t2.- Imported')
+    product_origin = 0
+    while product_origin < 1 or product_origin > 2:
+        product_origin = int(input (': '))
+        if product_origin < 1 or product_origin > 2:
+            print('Invalid value try again.')
+    if type_ == 1:
+        analgesic_average = analgesic_average + price
+        analgesic_amount +=1
+    elif type_ == 2:
+        anti_allergy_average = anti_allergy_average + price
+        anti_allergy_amount += 1
+    #Conditional to determine if the pharmaceutical-drug is national or imported
+    if product_origin==1:
+        national_average = national_average + price
+        national_quantity +=1
+    elif product_origin == 2:
+        import_average = import_average + price
+        import_quantity += 1
+"""Form 1"""       
+# This try catch block is placed otherwise it generates a ZeroDivisionError error
+try:
+    analgesic_average = analgesic_average/analgesic_amount
+except:
+    analgesic_average = 0
+# Conditional if made in one line to determine an average analgesic result
+analgesic_average = 0 if analgesic_amount == 0 else analgesic_average
+"""Ending Form 1"""
+
+"""Form 2 traditional """
+#Conditionals for the anti-allergy amount   
+if anti_allergy_amount == 0:
+    anti_allergy_average = 0
+else:
+    anti_allergy_average = anti_allergy_average/ anti_allergy_amount
+
+#conditionals for the National average   
+if national_quantity == 0:
+    national_average = 0
+else:
+    national_average = national_average/national_quantity
+    
+#Conditional for the import average
+if import_quantity == 0:
+    import_average = 0
+else:
+    import_average = import_average/import_quantity
+"""End Form 2 traditional """ 
+
+print ('Analgesic quantity: {}'.format(analgesic_amount))
+print ('Anti-allergy quantity: {}'.format(anti_allergy_amount))
+print ('National amount: {}'.format(national_quantity))
+print ('Imported quantity: {}'.format(import_quantity))
+print ('Analgesic average: {}'.format(analgesic_average))
+print ('Anti-allergy average: {}'.format(anti_allergy_average))
+print ('National average: {}'.format(national_average))
+print ('Imported average: {}'.format(import_average))
