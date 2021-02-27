@@ -1,0 +1,27 @@
+employees_quantity = int(input('Enter the employees quantity: '))
+def employee_file_generator(employees_quantity):
+    operational_employees_area = 0
+    administrative_employees_area = 0
+    adult_employee = 0
+    average_salary = 0
+    for employee in range(1, employees_quantity+1):
+        print ('\nEmployee file: ' + repr(employee))
+        name = str(input('Enter the employee name: '))
+        age = int(input('Enter the age '))
+        salary = float(input('Enter the salary '))
+        work_area = str(input('Enter the area of work '))
+        seniority = int(input('Enter the employee seniority in the company '))
+        average_salary= average_salary + salary
+        if adult_employee < age:
+            adult_employee = age
+        if(work_area == "administrative"):
+            administrative_employees_area = administrative_employees_area + 1
+        if(work_area == "operational"):
+            operational_employees_area = operational_employees_area + 1
+        print('\nFor the file {}, the employee: {}, has: {} year(s) in the company'.format(employee, name, seniority))        
+    average_salary = average_salary/employees_quantity
+    print('\nTotal salary average: {}'.format(average_salary))
+    print('Total employees of the administrative area: {}'.format(administrative_employees_area))
+    print('Total employees of the operational area {}'.format(operational_employees_area))
+    print('The older employee in the company has: {} years'.format(adult_employee))
+august_file_report = employee_file_generator(employees_quantity)   
