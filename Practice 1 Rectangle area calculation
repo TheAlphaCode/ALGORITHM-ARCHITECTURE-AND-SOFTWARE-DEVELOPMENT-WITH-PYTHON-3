@@ -1,0 +1,6 @@
+b = int(input("\nEnter the base value: "))
+h = int(input("Enter the height value: "))
+
+A = (b*h)
+
+print("The rectangle area is: {} cm".format(A))
