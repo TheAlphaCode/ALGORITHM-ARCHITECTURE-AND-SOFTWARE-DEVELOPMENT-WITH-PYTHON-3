@@ -1,0 +1,85 @@
+# A) solution
+import numpy as np
+
+l = int(input('Enter the vector longitud: ')) # Variable that controls the longitud of the vector
+x = np.empty(shape=(0,0)) # creation of an empty matix
+
+def vector_creation(x,l):
+    for i in range(l):
+        a = float(input('Enter a digit for the vector: ')) 
+        x = np.append(x, a) #Add the value entered by console of the previous line to the vector
+    reading_vector(x) # calling the reading vector function
+        
+def reading_vector(x):
+    print('\n')
+    for i in range(len(x)):
+        print('In the position '+str(i+1)+' it is the value: ',x[i])
+
+vector_creation(x,l) # calling the vector_creation function
+
+# B) solution
+import numpy as np
+
+l = int(input('Enter the longitud of the vector: '))
+x = np.empty(shape=(0,0))
+key = float(input('\nEnter the key value search in the vector: '))
+
+print('\n')
+def vector_key_search(x,l,key):
+    swe = 0
+    for i in range(l):
+        a = float(input('Enter a digit for the vector: '))
+        x = np.append(x, a)
+        if x[i] == key:
+            swe = 1
+            pos = i+1
+
+    if swe == 1:
+        print('\nThe element: {} it is found in the position {} of the vector'.format(key, pos))
+    else:
+        print('\nThe element: {} is not found within the vector.'.format(key))
+
+vector_key_search(x,l,key)
+
+# C) solution
+#Variables of the program
+rows_a = int(input('Enter the number of rows for the A array: '))
+columns_a = int(input('Enter the numbers od columns for the A array: '))
+rows_b = int(input('Enter the number of rows for the B array : '))
+columns_b = int(input('Enter the numbers of columns for the B array : '))
+if rows_a < 1 or columns_a < 1 or rows_b < 1 or columns_b <1 or columns_a != rows_b:
+    print('The matrices cannot be multiply please try again.')        
+else:
+     #- Empty list a, Empty list b, Empty list c -> result from the multiplication of a x b
+    a, b, c = [], [], []
+    print('\t') 
+    """Start of the loop to fill the elements of the (a) array"""
+    for i in range(rows_a):
+        a.append([]) #-->Creates empty elements or positions in array (a)
+        for j in range (columns_a):
+            a[i].append(float(input('Enter the element A['+str(i)+']['+str(j)+']: ')))# fill element of the (a) matrix
+    """End of the loop to fill the elements of the (a) array """
+    print('')    
+    """Start of the loop to fill the elements of the (b) array """
+    for i in range(rows_b):
+        b.append([]) #--> Creates empty elements or positions in array (a)
+        for j in range (columns_b):
+            b[i].append(float(input('Ingrese el elemento B['+str(i)+']['+str(j)+']: ')))#fill element of the (b) matrix
+    """End of the loop to fill the elements of the (b) array """   
+    """Start of the calculation cycle for elements of the resulting matrix c: a x b"""
+    for i in range(rows_a):
+        c.append([])
+        for j in range(columns_b):
+            c[i].append(0)
+            for k in range(rows_b):
+                c[i][j] = a[i][j] * b[i][j]
+    """End of the calculation cycle for elements of the resulting matrix c: a x b """    
+ 
+    """Start for printing cycle of the resulting matrix c""" 
+    print('\nResult:')
+    print('\n[----Array '+ str(rows_a)+ 'x'+str(columns_b)+'----]')
+    for element in c:
+        e = str(element)
+        print('-----'+e+'-----')        
+    print('[----Array '+ str(rows_a)+ 'x'+str(columns_b)+'----]')
+    """End for printing cycle of the resulting matrix c """    
