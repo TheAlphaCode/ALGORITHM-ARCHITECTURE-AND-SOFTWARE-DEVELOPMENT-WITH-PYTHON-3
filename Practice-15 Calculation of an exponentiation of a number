@@ -1,0 +1,13 @@
+n = int(input('Enter the exponent: '))# Limit value or ceiling of calculation of the maximum exponent of the n
+x = float(input('Enter the base number: ')) #Value that will be raised to the exponent of n
+
+if(n < 0):
+    print('The number n: {} is not a positive exponent.'.format(n))
+else:
+    # Starts the result of the successive multiplications of the base x
+    r = x # Match the result to the base number
+    
+    for i in range(1,n): #Cycle that controls the successive multiplications of the base number 
+        r = r * x
+    print('\nThe value for the result of: {}, raised to the exponent {}'.format(x,n))
+    print('\nIs equal to: {}'.format(r))
