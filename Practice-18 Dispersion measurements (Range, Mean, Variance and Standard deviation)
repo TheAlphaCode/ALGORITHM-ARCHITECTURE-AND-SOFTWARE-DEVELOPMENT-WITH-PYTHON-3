@@ -1,0 +1,33 @@
+import numpy as np
+# Variables
+n = int(input('Enter the data: '))
+data_sum = 0
+variance = 0
+range_ = [] #--> empty list to control the entered data
+
+for i in range(n): 
+    data = int(input('Enter the data: '))
+    range_.append(data)
+    data_sum += data
+    variance = variance + (data * data)
+    
+"""Range calculation"""   
+max_value, min_value =  max(range_),min(range_)
+range_ = max_value - min_value
+
+""" Mean calculation """
+mean = data_sum / n
+
+""" Variance calculation """
+variance = ((variance/n)-mean*mean)
+
+""" Standard deviation calculation """
+std = np.sqrt(variance)
+"""Print the obtained results """
+print('\nThe range for the data series is: {}'.format(range_))
+print("-------------")
+print('The mean for the data series is: {}'.format(mean))
+print("-------------")
+print('The variance for the data series is: {}'.format(variance))
+print("-------------")
+print('The standard deviation for the data series is: {}'.format(std))
