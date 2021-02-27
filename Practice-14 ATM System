@@ -1,0 +1,73 @@
+"""Starting the ATM system program"""
+import getpass #library that does not allow us to observe the value that we enter through the console,simulating an ATM
+
+def ATM_menu():
+    print("----------- ATM Simulator -----------")
+    print("Options")
+    print("\t1.- Password changing")
+    print("\t2.- Deposit")
+    print("\t3.- Withdrawal")
+    print("\t4.- Transfer")
+    print("---- Please enter one of the options ----------")
+    
+ATM_menu() # method that allows calling the options menu
+
+# Variables
+op = int(input('Enter the operation to perform: '))
+balance = 2000
+
+if(op == 1 or op== 2 or op ==3 or op==4): # Check if the option entered is valid to enter
+    password = getpass.getpass('Please enter your password: ')
+    validation = getpass.getpass('Please enter your current password: ')
+    
+    if(password == validation): # controls if the entered key is equal to the validation to enter the system
+        
+        if(op == 1):
+            newPassword = input('Enter your new password: ')
+            password = newPassword # saves the new password
+            
+        elif(op == 2):
+            deposit = float(input('Make a deposit: '+ '$'))
+            balance = balance + deposit
+            print('The balance of your bank account is: {}'.format(balance)) 
+
+        elif(op == 3):
+            print("---------- Withdrawal options -----------")
+            print("\t1.- 500 $")
+            print("\t2.- 1.000 $")
+            print("\t3.- Another quantity")
+            op2 = int(input('Enter your withdrawal option: '))        
+            if(op2 == 1):
+                balance = balance - 500
+                print('For a withdrawal of: 500')
+                print('The current balance for your bank account is: {}'.format(balance)) 
+
+            elif(op2 == 2):
+                balance = balance - 1000
+                print('For a withdrawal of: 1000')
+                print('The current balance for your bank account is: {}'.format(balance))  
+                
+            elif(op2 == 3):
+                withDrawal_diff = float(input('Ingrese otra cantidad a retirar: '))
+                balance = balance - withDrawal_diff
+                print('The current balance for your bank account is: {}'.format(balance))             
+            else:
+                print('Invalid option try again')  
+                
+        elif(op == 4):
+            account_number = int(input('Ingrese el numero de cuenta a depositar: '))
+            amount_to_transfer = float(input('Digite el valor a transferir: '))
+            balance = balance - amount_to_transfer          
+            if(balance < 0):
+                print('Transaction not performed error, the value to transfer exceeds the amount of your account.')
+            else:
+                print('\n The transfer to the account: {}, was successful'.format(account_number))
+                print('\n The current balance for your bank account is: {}'.format(balance))        
+        else:
+            print('Invalid option try again')               
+    else:
+        print('Wrong password please try again')
+else:
+    print('Invalid option try again')
+    
+"""End of the program ATM system """
