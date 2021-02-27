@@ -1,0 +1,14 @@
+import numpy as np
+print('\nEnter the values of the coefficients of the quadratic equation: ')
+a = float(input('Enter the value of the coefficient a: '))
+b = float(input('Enter the value of the coefficient b: '))
+c = float(input('Enter the value of the coefficient c: '))
+discriminant = (b*b)-(4*a*c)
+
+if discriminant >= 0:
+    R1 = (b + np.sqrt(discriminant))/(2*a)
+    R2 = (b - np.sqrt(discriminant))/(2*a)
+    print('The roots with the coefficients: a = {}, b = {}, c ={}'.format(a,b,c))
+    print('They are as follows: Root 1 = {}, Root 2 = {}'.format(R1,R2))
+else:
+    print('The calculated roots are imaginary')
