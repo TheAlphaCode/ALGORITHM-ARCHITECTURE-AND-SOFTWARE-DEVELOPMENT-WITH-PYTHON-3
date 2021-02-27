@@ -1,0 +1,37 @@
+#Variables
+insured_persons = float (input ('Enter the quantity of insurance persons: '))
+insurance_type = 0
+max_persons = 0
+monthly_payment= 0
+anual_amount = 0
+print ('Please select the insurance type:') #Option menu
+print ('\t1.- Alfa')
+print ('\t2.- Beta')
+print ('\t3.- Sigma')
+print ('\t4.- Delta')
+# While loop that conditions the user to always enter a value contained between 1 and 4 [1,4]
+while insurance_type < 1 or insurance_type > 4:
+    insurance_type = int (input (': '))
+    if insurance_type < 1 or insurance_type > 4:
+        print('wrong value try again.')        
+if insurance_type == 1:
+    max_persons = 4 # Max count of the people that can be insurance
+    monthly_payment = 57 #amount of the service
+    alfa_services = ['Optometrist ',' Odontologist ',' Pediatrics', 'Psychiatry',
+                      'Gastroenterology', 'Dermatology', 'Cardiology', 'General medicine'] #List of services
+elif insurance_type == 2:
+    max_persons = 3
+    monthly_payment = 45
+    beta_services = ['Optometrist', 'Odontologist', 'Pediatrics', 'Psychiatry',
+                      'Dermatology', 'Cardiology', 'General medicine']
+elif insurance_type == 3:
+    max_persons = 2
+    monthly_payment = 35
+    sigma_services = ['Optometrist', 'Odontologist', 'Psychiatry',
+                      'Dermatology', 'Cardiology', 'General medicine']
+elif insurance_type == 4:
+    max_persons = 1
+    monthly_payment = 27
+    delta_services = ['Optometrist', 'Odontologist',
+                      'Dermatology','General medicine']
+"""Ending of the control conditions to determine type of plan, services and amount"""
