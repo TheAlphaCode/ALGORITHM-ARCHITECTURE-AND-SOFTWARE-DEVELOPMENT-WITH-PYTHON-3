@@ -35,3 +35,33 @@ elif insurance_type == 4:
     delta_services = ['Optometrist', 'Odontologist',
                       'Dermatology','General medicine']
 """Ending of the control conditions to determine type of plan, services and amount"""
+# Calculation of the anual amount to pay  
+anual_amount = monthly_payment * 12
+#Annual payment calculation with extra person in insurance type 1 and 2   
+if insured_persons > max_persons and (insurance_type == 1 or insurance_type==2):
+    monthly_payment = monthly_payment + (insured_persons - max_persons) * 10
+    anual_amount = monthly_payment * 12
+# Annual payment calculation with extra person in insurance type 3 and 4   
+if insured_persons > max_persons and (insurance_type == 3 or insurance_type == 4):
+    monthly_payment = monthly_payment + (insured_persons - max_persons) * 6
+    anual_amount = monthly_payment * 12
+    
+print ('The Max value of persons that can be insurance with this plan is: {}'.format(max_persons))
+print ('Anual payment: {}'.format(anual_amount))
+print ('Value of the monthly payment: {}'.format(monthly_payment))
+if insurance_type == 1:
+    print('\nServices which the Alfaa insurance covers are the following: ')
+    for service in alfa_services: # For loop that goes through the list of services
+        print(service)
+elif insurance_type == 2:
+    print('\nServices which the Beta insurance covers are the following: ')
+    for service in beta_services:
+        print(service)
+elif insurance_type == 3:
+    print('\nServices which the Sigmaa insurance covers are the following: ')
+    for service in sigma_services:
+        print(service)
+elif insurance_type == 4:
+    print('\nServices which the Delta insurance covers are the following: ')
+    for service in delta_services:
+        print(service)
