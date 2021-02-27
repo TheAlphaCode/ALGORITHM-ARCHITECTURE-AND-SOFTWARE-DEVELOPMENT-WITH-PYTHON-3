@@ -1,0 +1,26 @@
+n = int(input('Enter the value of the serie: '))
+
+while n < 0:
+    print('The number entered is not a positive integer, try again.')
+    n = int(input('\nEnter a new Fibonacci series value: '))
+
+first_term = 1
+second_term = 2
+sum_ = first_term + second_term
+if(n == 1):
+    print('----- Fibonacci series ------')
+    print('Termino 1: {}'.format(first_term))
+    sum_ = first_term
+else:
+    print('----- Fibonacci series ------')
+    print('Termino 1: {}'.format(first_term))
+    print('Termino 2: {}'.format(second_term))
+    
+    for i in range(3,n+1):
+        third_term = first_term + second_term
+        sum_ = sum_ + third_term
+        print('Termino '+str(i)+': {}'.format(third_term))
+        first_term = second_term
+        second_term = third_term
+
+print('The total sum of the Fibonacci series: {}'.format(sum_))
