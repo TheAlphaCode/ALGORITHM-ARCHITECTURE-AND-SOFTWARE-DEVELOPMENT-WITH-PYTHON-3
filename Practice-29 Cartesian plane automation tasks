@@ -1,0 +1,70 @@
+import math
+
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "({}, {})".format(self.x, self.y)
+
+    def quadrant(self):
+        if self.x > 0 and self.y > 0:
+            print("The points {} belong to the first quadrant".format(self))
+        elif self.x < 0 and self.y > 0:
+            print("The points {} belong to the second quadrant".format(self))
+        elif self.x < 0 and self.y < 0:
+            print("The points {} belong to the third quadrant".format(self))
+        elif self.x > 0 and self.y < 0:
+            print("The points {} belong to the fourth quadrant".format(self))
+        elif self.x != 0 and self.y == 0:
+            print("{} lies on the X axis".format(self))
+        elif self.x == 0 and self.y != 0:
+            print("{} lies on the Y axis".format(self))
+        else:
+            print("{} it lies on the origin".format(self))
+
+    def vector(self, p):
+        print("The vector between {} and {} is ({}, {})".format(self, p, p.x - self.x, p.y - self.y) )
+
+    def distance(self, p):
+        d = math.sqrt( (p.x - self.x)**2 + (p.y - self.y)**2 )
+        print("The distance between the points {} and {} is {}".format(self, p, d))
+        
+"""Continuation of the program..."""
+class Rectangle:
+    def __init__(self, pInitial=Point(), pFinal=Point()):
+        self.pInitial = pInitial
+        self.pFinal = pFinal
+        # Calculations are performed, but attributes are not called equal
+        # than the methods because otherwise we could override them
+        self.vBase = abs(self.pFinal.x - self.pInitial.x)
+        self.vHeight = abs(self.pFinal.y - self.pInitial.y)
+        self.vArea = self.vBase * self.vHeight
+        self.vPerimeter = (self.vBase * 2) + (self.vHeight * 2)
+    def base(self):
+        print("The base of the rectangle is: {}".format(self.vBase))
+    def height(self):
+        print("The height of the rectangle is: {}".format(self.vHeight))
+    def area(self):
+        print("The area of the rectangle is: {}".format(self.vArea))
+    def perimeter(self):
+        print("The perimeter of the rectangle is: {}".format(self.vPerimeter))
+""" Begin of the query parameters """
+A, B, C, D = Point(3,4), Point(6,6), Point(-9,-5), Point(0,0)
+A.quadrant()
+B.quadrant()
+C.quadrant()
+D.quadrant()
+A.vector(B)
+B.vector(A)
+A.distance(B)
+B.distance(A)
+A.distance(D)
+B.distance(D)
+C.distance(D)
+R = Rectangle(A, B)
+R.base()
+R.height()
+R.area()
+R.perimeter()
