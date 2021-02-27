@@ -1,0 +1,33 @@
+from math import *
+def test1(t, y): #ftest function 1
+    return y-t**2+1
+
+def test2(t, y): #ftest function 2
+    return 2.0-exp(-4*t)-2*y
+
+def test3(t, y): # test function 3
+    return (2-y)*t
+def euler(a, b, y0, f, N): #Euler method function
+    h = (b-a)/float(N)
+    t = a
+    w = y0
+    print("ti ----- yi")
+    print("{}    --> {}".format(t,w))
+    """Iterations loop..."""
+    for i in range(1, N+1):
+        w = w+h*f(t, w) #Calculation of yi
+        t = float(a+i*h) #Calculation of ti
+        print("{:.2f} --> {}".format(t,w))
+    print("Number of iterations: {}\n".format(N))
+#Parameters:
+print("Euler method function 1:\n")
+euler(0,2,0.5,test1, 10)
+#Where:a=0,b=2,y0 =0.5,f(x)=test1, N=10
+
+print("Euler method function 2:\n")
+euler(0,1,1,test2,12)
+#Where:a=0,b=1,y0 =1,f(x)=test2, N=12
+
+print("Euler method function 3:\n")
+euler(1,3,-5,test3,10)
+#Where:a=1,b=3,y0 =-5,f(x)=test3, N=10
