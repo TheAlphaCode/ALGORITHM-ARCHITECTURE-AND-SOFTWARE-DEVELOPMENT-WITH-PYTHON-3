@@ -1,0 +1,15 @@
+n = int(input('Enter the quantity of the set of numbers: '))
+sum_ = 0 # The sum for the mean is initialized to 0
+   
+def mean_calculation(n,sum_): #Function that is in charge of calculating the mean value,and entering the data 
+    
+    for i in range(1,n+1): # Control loop
+        num = float(input('Enter the number: '))
+        print(('The number: {} is part of the set for the mean or average calculation').format(num))
+        sum_ = sum_ + num
+    mean_value = sum_ / n # Calculates the mean value 
+    return mean_value
+
+calculation = mean_calculation(n,sum_) # Object
+
+print('The mean value for the set of numbers is: {}'.format(calculation))
