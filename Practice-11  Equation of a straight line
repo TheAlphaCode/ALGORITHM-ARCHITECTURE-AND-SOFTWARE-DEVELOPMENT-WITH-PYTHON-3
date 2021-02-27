@@ -1,0 +1,19 @@
+m = 0
+# values of  x
+x1 = float(input('Enter the value of x1:'))
+x2 = float(input('Enter the value of x2:'))
+#values of y
+y1 = float(input('Enter the value of y1:'))
+y2 = float(input('Enter the value of y2:'))
+
+# equation for calculating the slope of the line
+m = (y1-y2)/(x1-x2)
+print("\nThe equation of the straight line is y= ")
+if(m != 0):
+    print('{} ({}) + {}'.format(m,x1,y1))
+    if(m>0):
+        print('\nThe slope of the line is increasing (+)')
+    else:
+        print('\nThe slope of the line is decreasing (-)')
+else:
+    print(y1)
