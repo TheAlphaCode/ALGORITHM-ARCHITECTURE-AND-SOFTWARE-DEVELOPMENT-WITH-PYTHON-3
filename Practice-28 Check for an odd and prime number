@@ -1,0 +1,31 @@
+import math 
+
+def checker_odd_prime():
+    n = int(input('Please enter a number to check: '))
+    rodd = odd(n)
+    if rodd == 1:
+        rprime = prime(n)
+        if rprime == 1:
+            print('\nThe number: {} is odd and prime'.format(n))
+        else:
+            print('\nThe number: {} is odd but not prime'.format(n))
+    else:
+        print('\nThe number: {} is not odd'.format(n))
+    
+def odd(n):
+    if(n % 2 != 0):
+        return 1
+    else:
+        return 0
+
+def prime(n):
+    swp = 1
+    i = 2
+    while(swp == 1 and i <= math.sqrt(n)):
+        if(n % i == 0):
+            swp = 0
+        i = i + 1
+    if swp == 1:
+        return 1
+    else:
+        return 0
