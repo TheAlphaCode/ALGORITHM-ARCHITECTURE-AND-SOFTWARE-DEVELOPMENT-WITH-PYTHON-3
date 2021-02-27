@@ -1,0 +1,16 @@
+Pi = 3.1416 # Pi value
+Rma = float(input('Enter the value of the Major Radius: ')) #Major radius
+rme = float(input('Enter the value of Radius minus: ')) #Minor radius
+g = int(input('Enter the value of the amplitude in degrees: ')) 
+
+def calculate_circular_trapezoid_area(Pi,Rma,rme,g):
+   
+    """formula for calculating the
+        area corresponding to the circular trapezoid"""
+    
+    return Pi*(Rma*Rma-rme*rme)*g/360
+
+Area = calculate_circular_trapezoid_area(Pi,Rma,rme,g)
+print('For a larger radius trapezoid: {} and with a smaller radius equal to: {}'.format(Rma,rme))
+print('With an amplitude in degrees = {}'.format(g))
+print('\nThe area of the circular trapezoid is equal to = {}'.format(Area))
